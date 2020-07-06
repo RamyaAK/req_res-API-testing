@@ -7,6 +7,7 @@
     "test:mochawesome": "cypress run -b chrome mochawesome -s 'cypress/integration/tests/reqres-api.spec.js'",
     "merge_reports": "mochawesome-merge --reportDir mochawesome-report > mochawesome-report/output.json",
     "report": "marge mochawesome-report/output.json",
+    "cleanup": "rm -fr cypress/report/mochawesome-report",
     "cy:test": "cypress run",
     "cy:open": "cypress open",
     "test:prod": "cypress run -r mochawesome -e configFile=prod -s 'cypress/integration/tests/reqres-api.spec.js'",

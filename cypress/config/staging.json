@@ -7,7 +7,7 @@
         "json": true
     },
     "env": {
-        "ENVIRONMENT": "qa",
+        "ENVIRONMENT": "staging",
         "CYPRESS_RETRIES": 2
     }
     

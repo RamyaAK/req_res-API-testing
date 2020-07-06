@@ -7,7 +7,7 @@
         "json": true
     },
     "env": {
-        "ENVIRONMENT": "qa",
+        "ENVIRONMENT": "prod",
         "CYPRESS_RETRIES": 2
     }
     
