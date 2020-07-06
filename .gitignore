@@ -8,3 +8,6 @@ cypress/screenshots
 
 # video recordings
 cypress/videos
+
+#reporting
+mochawesome-report/

@@ -1,0 +1,14 @@
+{
+    "baseUrl": "https://reqres.in",
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "overwrite": false,
+        "html": true,
+        "json": true
+    },
+    "env": {
+        "ENVIRONMENT": "qa",
+        "CYPRESS_RETRIES": 2
+    }
+    
+}

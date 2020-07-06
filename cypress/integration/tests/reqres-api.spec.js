@@ -1,4 +1,10 @@
 describe('REST API Automation', () => {
+
+    beforeEach(() => {
+        // before each test
+        cy.visit('/')
+     });
+
     it('GET, Get all the Users Test API', () => {
         cy.request('/api/users?page=2').then((response) => {
             expect(response.status).equals(200)
@@ -14,6 +20,7 @@ describe('REST API Automation', () => {
     
         cy.request('POST','/api/users',userDetails).then((response) => {
             expect(response.status).equals(201)
+            expect(response.body.name).equals('ramya')
     })
     });
     
@@ -51,7 +58,7 @@ describe('REST API Automation', () => {
     })
     });
 
-    it('returns a JSON data', () => {
+    it('returns a JSON data and verifies its headers', () => {
         cy.request('//api/users')
           .its('headers')
           .its('content-type')
@@ -80,5 +87,23 @@ describe('REST API Automation', () => {
           expect(response.body.job).to.equal('sdet');
         });
       });
+    
+      it('NOT FOUND, should throw User Not Found 404 error code', () => {
+        cy.api({ url: '/api/users/23' }).then((res) => {
+          expect(res.status).to.equal(404);
+        });
+      });
+
+      it('should return a resource List data successfully', () => {
+        cy.api({
+          method: 'GET',
+          url: '/api/unknown'
+        }).then((response) => {
+          expect(response.status).to.equal(200);
+
+          expect(response.body.data[0].id).to.equal(1);
+        });
+      });
+
 });
 

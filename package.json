@@ -4,14 +4,22 @@
   "description": "Sample API test framework",
   "main": "index.js",
   "scripts": {
+    "test:mochawesome": "cypress run -b chrome mochawesome -s 'cypress/integration/tests/reqres-api.spec.js'",
+    "merge_reports": "mochawesome-merge --reportDir mochawesome-report > mochawesome-report/output.json",
+    "report": "marge mochawesome-report/output.json",
     "cy:test": "cypress run",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "test:prod": "cypress run -r mochawesome -e configFile=prod -s 'cypress/integration/tests/reqres-api.spec.js'",
+    "test:staging": "cypress run -r mochawesome -e configFile=staging -s 'cypress/integration/tests/reqres-api.spec.js'",
+    "test:qa": "cypress run -r mochawesome -e configFile=qa -s 'cypress/integration/tests/reqres-api.spec.js'"
   },
-  "keywords": [],
   "author": "Ramya Kulkarni",
   "license": "ISC",
   "devDependencies": {
     "@bahmutov/cy-api": "^1.4.2",
-    "cypress": "^4.9.0"
+    "cypress": "^4.9.0",
+    "mocha": "^8.0.1",
+    "mochawesome": "^6.1.1",
+    "mochawesome-merge": "^4.1.0"
   }
 }
